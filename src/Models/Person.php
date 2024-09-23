@@ -1,6 +1,6 @@
 <?php
 
-namespace VadiksMoniks\PhoneBook\Models;
+namespace PhoneBook\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

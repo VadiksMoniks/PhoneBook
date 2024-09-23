@@ -1,6 +1,6 @@
 <?php
 
-namespace VadiksMoniks\PhoneBook\Http\Controllers;
+namespace PhoneBook\Http\Controllers;
 
 use VadiksMoniks\PhoneBook\Models\Person;
 use VadiksMoniks\PhoneBook\Models\PhoneNumber;
