@@ -6,7 +6,7 @@ import path from 'path';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['./vendor/vadiksmoniks/phone-book/resources/css/app.css', './vendor/vadiksmoniks/phone-book/resources/js/app.js'],
+            input: ['./vendor/vadiksmoniks/phonebook/resources/css/app.css', './vendor/vadiksmoniks/phonebook/resources/js/app.js'],
             refresh: true,
         }),
         vue(),

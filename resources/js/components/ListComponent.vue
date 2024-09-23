@@ -111,7 +111,7 @@ export default{
 
     methods:{
         get_records(){
-            axios.get('http://localhost/PhoneBookPackage/public/list')
+            axios.get('http://localhost/test/public/list')
             .then( response => {
                 console.log(response.data);
                 this.records = response.data.records.data;
@@ -140,7 +140,7 @@ export default{
 
         search_contacts(){
           if(this.pattern.trim() !== ''){
-            axios.get("http://localhost/PhoneBookPackage/public/contacts/"+this.pattern)
+            axios.get("http://localhost/test/public/phonebook/contacts/"+this.pattern)
             .then( response => {
               this.search_results = response.data.results;
               this.result_list_visibility = true;
@@ -164,7 +164,7 @@ export default{
 
         delete_contact(id){
           console.log(id);
-          axios.delete('http://localhost/PhoneBookPackage/public/'+id+'/delete')
+          axios.delete('http://localhost/PhoneBookPackage/public/phonebook/'+id+'/delete')
           .then( response => {
             alert(response.data.message);
           })

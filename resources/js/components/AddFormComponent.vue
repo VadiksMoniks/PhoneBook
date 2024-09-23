@@ -116,7 +116,7 @@ export default{
                     console.log(pair[0]+ ', ' + pair[1]); 
                 }
 
-                axios.post('http://localhost/PhoneBookPackage/public/store', formData)
+                axios.post('http://localhost/test/public/phonebook/store', formData)
                 .then( response => {
                     this.answer = response.data.message;
 
@@ -156,7 +156,7 @@ export default{
 
                 console.log(this.last_name);
                 formData.append('_method', 'PUT');
-                axios.post('http://localhost/PhoneBookPackage/public/update', formData)
+                axios.post('http://localhost/test/public/phonebook/update', formData)
                 .then( response => {
                     this.answer = response.data.message;
 

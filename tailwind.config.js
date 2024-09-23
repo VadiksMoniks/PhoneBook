@@ -5,9 +5,9 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",
 
-    "./packages/VadiksMoniks/PhoneBook/resources/**/*.blade.php",
-    "./packages/VadiksMoniks/PhoneBook/resources/**/*.js",
-    "./packages/VadiksMoniks/PhoneBook/resources/**/*.vue",
+    "./vendor/vadiksmoniks/phonebook/resources/**/*.blade.php",
+    "./vendor/vadiksmoniks/phonebook/resources/**/*.js",
+    "./vendor/vadiksmoniks/phonebook/resources/**/*.vue",
   ],
   theme: {
     extend: {},

@@ -10,7 +10,7 @@ class PhoneBookServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'phone-book');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'phonebook');
         
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }

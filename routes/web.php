@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','phone-book::index');
+Route::group(['prefix' => 'phonebook'], function(){
+    Route::view('/','phone-book::index');
 
-Route::get('/list/{page?}', [RecordController::class, 'index']);
-Route::get('/contacts/{pattern}', [RecordController::class, 'searchByPattern']);
-
-Route::post('/store', [RecordController::class, 'store']);
-Route::put('/update', [RecordController::class, 'update']);
-Route::delete('/{id}/delete', [RecordController::class, 'delete']);
+    Route::get('/list/{page?}', [RecordController::class, 'index']);
+    Route::get('/contacts/{pattern}', [RecordController::class, 'searchByPattern']);
+    
+    Route::post('/store', [RecordController::class, 'store']);
+    Route::put('/update', [RecordController::class, 'update']);
+    Route::delete('/{id}/delete', [RecordController::class, 'delete']);
+});
