@@ -4,13 +4,13 @@ To install into your project follow the next steps:
 2) change in .env file DB_NAME: laravel to DB_NAME: phone-book
 3) add to your composer.json file in require section this line: `vadiksmoniks/phonebook: "dev-main"`
 4) add in the end of file this code:
-   ```
+   ```bash
   "repositories":[
     {
       "type": "vcs",
       "url": "https://github.com/VadiksMoniks/PhoneBook"
     }
-  ]```
+  ]
 
 6) In terminal run command composer update
 7) Copy files "People" and "PhoneNumbers" from /vendor/vadiksmoniks/phonebook/database/seeers to your folder database/seeders in root of project
