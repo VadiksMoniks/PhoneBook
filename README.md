@@ -2,16 +2,16 @@ This project was made on php version 8.0.7, laravel 9.5.2, vue js, tailwind css 
 To install into your project follow the next steps:
 1) IF you dont have a project yet create it via command composer create-project laravel/laravel your_project_name
 2) change in .env file DB_NAME: laravel to DB_NAME: phone-book
-3) add to your composer.json file in require section this line: vadiksmoniks/phonebook: "dev-main"
+3) add to your composer.json file in require section this line: `vadiksmoniks/phonebook: "dev-main"`
 4) add in the end of file this code:
-   ``
+   ```
   "repositories":[
     {
       "type": "vcs",
       "url": "https://github.com/VadiksMoniks/PhoneBook"
     }
   ]
-  ``
+
 6) In terminal run command composer update
 7) Copy files "People" and "PhoneNumbers" from /vendor/vadiksmoniks/phonebook/database/seeers to your folder database/seeders in root of project
 8) run command php artisan migrate
