@@ -10,7 +10,7 @@ To install into your project follow the next steps:
       "type": "vcs",
       "url": "https://github.com/VadiksMoniks/PhoneBook"
     }
-  ]
+  ]```
 
 6) In terminal run command composer update
 7) Copy files "People" and "PhoneNumbers" from /vendor/vadiksmoniks/phonebook/database/seeers to your folder database/seeders in root of project
