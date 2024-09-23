@@ -10,5 +10,13 @@
             "VadiksMoniks\\PhoneBook\\": "src/"
         }
     },
-    "require":{}
+    "require":{},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VadiksMoniks\\PhoneBook\\PhoneBookServiceProvider"
+            ]
+        }
+    }
+
 }
