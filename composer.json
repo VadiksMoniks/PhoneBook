@@ -1,14 +1,14 @@
 {
-    "name": "vadiksmoniks/phone-book",
+    "name": "vadiksmoniks/phonebook",
     "description": "A simple phone book package.",
     "type": "library",
-    "require": {
-        "php": "^8.0",
-        "laravel/framework": "^9.0"
-    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "VadiksMoniks\\PhoneBook\\": "src/"
         }
-    }
+    },
+    "require":{}
 }
