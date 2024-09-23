@@ -1,6 +1,6 @@
 <?php
 
-namespace PhoneBook\Http\Controllers;
+namespace VadiksMoniks\PhoneBook\Http\Controllers;
 
 use VadiksMoniks\PhoneBook\Models\Person;
 use VadiksMoniks\PhoneBook\Models\PhoneNumber;
@@ -8,7 +8,7 @@ use VadiksMoniks\PhoneBook\Rules\PhoneValidationRule;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+use VadiksMoniks\PhoneBook\Http\Controllers\Controller;
 
 class RecordController extends Controller
 {

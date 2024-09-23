@@ -1,6 +1,6 @@
 <?php
 
-namespace PhoneBook\Http\Controllers;
+namespace VadiksMoniks\PhoneBook\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

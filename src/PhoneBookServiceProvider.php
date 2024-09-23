@@ -1,6 +1,6 @@
 <?php
 
-namespace PhoneBook;
+namespace VadiksMoniks\PhoneBook;
 
 use Illuminate\Support\ServiceProvider;
 

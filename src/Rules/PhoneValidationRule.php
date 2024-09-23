@@ -1,6 +1,6 @@
 <?php
 
-namespace PhoneBook\Rules;
+namespace VadiksMoniks\PhoneBook\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
