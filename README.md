@@ -2,8 +2,9 @@ This project was made on php version 8.0.7, laravel 9.5.2, vue js, tailwind css 
 To install into your project follow the next steps:
 1) IF you dont have a project yet create it via command composer create-project laravel/laravel your_project_name
 2) change in .env file DB_NAME: laravel to DB_NAME: phone-book
-3) add to your composer.json file in require section this line: `vadiksmoniks/phonebook: "dev-main"`
-4) add in the end of file this code:
+3) Create database called 'phone-book'
+4) add to your composer.json file in require section this line: `vadiksmoniks/phonebook: "dev-main"`
+5) add in the end of file this code:
 ```bash
 "repositories": [
   {
