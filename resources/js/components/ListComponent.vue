@@ -164,7 +164,7 @@ export default{
 
         delete_contact(id){
           console.log(id);
-          axios.delete('http://localhost/PhoneBookPackage/public/phonebook/'+id+'/delete')
+          axios.delete('http://localhost/test/public/phonebook/'+id+'/delete')
           .then( response => {
             alert(response.data.message);
           })
