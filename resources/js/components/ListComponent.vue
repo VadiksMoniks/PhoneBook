@@ -111,7 +111,7 @@ export default{
 
     methods:{
         get_records(){
-            axios.get('http://localhost/test/public/list')
+            axios.get('http://localhost/test/public/phonebook/list')
             .then( response => {
                 console.log(response.data);
                 this.records = response.data.records.data;
