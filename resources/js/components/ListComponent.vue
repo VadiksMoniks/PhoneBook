@@ -114,9 +114,9 @@ export default{
             axios.get('http://localhost/test/public/phonebook/list')
             .then( response => {
                 console.log(response.data);
-                this.records = response.data.records.data;
-                this.prev_page = response.data.records.prev_page_url;
-                this.next_page = response.data.records.next_page_url;
+                this.records = response.data.data;
+                this.prev_page = response.data.links.prev;
+                this.next_page = response.data.links.next;
             })
             .catch()
         },
@@ -125,9 +125,9 @@ export default{
           axios.get(direction)
             .then( response => {
                 console.log(response.data);
-                this.records = response.data.records.data;
-                this.prev_page = response.data.records.prev_page_url;
-                this.next_page = response.data.records.next_page_url;
+                this.records = response.data.data;
+                this.prev_page = response.data.links.prev;
+                this.next_page = response.data.links.next;
             })
             .catch()
         },
@@ -142,7 +142,7 @@ export default{
           if(this.pattern.trim() !== ''){
             axios.get("http://localhost/test/public/phonebook/contacts/"+this.pattern)
             .then( response => {
-              this.search_results = response.data.results;
+              this.search_results = response.data.data;
               this.result_list_visibility = true;
               console.log(response.data.results);
             })
@@ -164,9 +164,9 @@ export default{
 
         delete_contact(id){
           console.log(id);
-          axios.delete('http://localhost/PhoneBookPackage/public/phonebook/'+id+'/delete')
+          axios.delete('http://localhost/test/public/phonebook/'+id+'/delete')
           .then( response => {
-            alert(response.data.message);
+            alert(response.data.data.message);
           })
           .catch( error => {
             alert(error.response.data.message);

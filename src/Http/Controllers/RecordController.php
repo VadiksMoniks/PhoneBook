@@ -4,11 +4,12 @@ namespace VadiksMoniks\PhoneBook\Http\Controllers;
 
 use VadiksMoniks\PhoneBook\Models\Person;
 use VadiksMoniks\PhoneBook\Models\PhoneNumber;
-use VadiksMoniks\PhoneBook\Rules\PhoneValidationRule;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use VadiksMoniks\PhoneBook\Http\Controllers\Controller;
+use VadiksMoniks\PhoneBook\Http\Resources\PhoneBookResourceCollection;
+use VadiksMoniks\PhoneBook\Http\Requests\PhoneBookRequestValidator;
+use VadiksMoniks\PhoneBook\Http\Resources\ResponseResource;
 
 class RecordController extends Controller
 {
@@ -23,22 +24,14 @@ class RecordController extends Controller
 
     public function index()
     {
-        return response()->json([
-            'records' => Person::join('phone_numbers', 'people.id', '=', 'phone_numbers.person_id')
-                                ->select('phone_numbers.id', 'people.last_name', 'people.first_name', 'phone_number')
-                                ->paginate(6, request('page')),
-        ]);
+        $records =  Person::join('phone_numbers', 'people.id', '=', 'phone_numbers.person_id')
+                            ->select('phone_numbers.id', 'people.last_name', 'people.first_name', 'phone_number')
+                            ->paginate(6, request('page'));
+        return new PhoneBookResourceCollection($records);
     }
 
-    public function store(Request $request)
+    public function store(PhoneBookRequestValidator $request)
     {
-        $request->validate([
-            'last_name' => ['required', 'string'],
-            'first_name' => ['required', 'string'],
-            'phone_number' => ['required', 'unique:phone_numbers,phone_number', new PhoneValidationRule()],
-            'additional_numbers' => ['nullable', 'array'],
-            'additional_numbers.*' => ['string', new PhoneValidationRule()],
-        ]);
 
         DB::transaction( function() use ($request){
             $data = Person::firstOrCreate([
@@ -59,21 +52,15 @@ class RecordController extends Controller
             }
         });
 
-        return response()->json([
+        return new ResponseResource([
             'message' => 'contacts were addet to list',
             'status' => 200
         ]);
     }
 
-    public function update(Request $request)
+    public function update(PhoneBookRequestValidator $request)
     {
-        $request->validate([
-            'last_name' => ['required', 'string'],
-            'first_name' => ['required', 'string'],
-            'phone_number' => ['required', new PhoneValidationRule()],
-            'additional_numbers' => ['nullable', 'array'],
-            'additional_numbers.*' => ['string', new PhoneValidationRule()],
-        ]);
+
         $result = [];
         $personAndNumber = Person::join('phone_numbers', 'people.id', '=', 'phone_numbers.person_id')->where('last_name', $request->last_name)->where('first_name', $request->first_name)->where('phone_numbers.phone_number', $request->phone_number)->exists();
         $personData = Person::where("last_name", $request->last_name)->where('first_name', $request->first_name)->first();
@@ -131,7 +118,7 @@ class RecordController extends Controller
             }
         }
 
-        return response()->json($result);
+        return new ResponseResource($result);
 
     }
 
@@ -141,14 +128,14 @@ class RecordController extends Controller
 
             PhoneNumber::where('id', $id)->delete();
 
-            return response()->json([
+            return new ResponseResource([
                 'message' => 'Contact was deleted successfuly',
                 'status' => 200
             ]);
         }
         catch(Exception $e){
-            return response()->json([
-                'message' => "Something went wrong ".$e->getMessage(),
+            return new ResponseResource([
+                'message' => 'something went wrong',
                 'status' => 500
             ]);
         }
@@ -161,16 +148,18 @@ class RecordController extends Controller
                         ->where('last_name', 'like', "%$pattern%")
                         ->orWhere('first_name', 'like', "%$pattern%")
                         ->orWhere('phone_numbers.phone_number', 'like', "%$pattern%")
-                        ->select('people.last_name', 'people.first_name', 'phone_number')
+                        ->select('people.last_name', 'people.first_name', 'phone_number', 'phone_numbers.id')
                         ->limit(5)
                         ->get();
 
         if($result->isEmpty()){
-            $result = "No matches from your request";
+            return new ResponseResource([
+                'message' => 'No matches with your request',
+                'status' => 200
+            ]);
         }
 
-        return response()->json([
-            'results' => $result,
-        ]);
+        return new PhoneBookResourceCollection($result);
     }
 }
+

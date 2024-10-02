@@ -118,7 +118,7 @@ export default{
 
                 axios.post('http://localhost/test/public/phonebook/store', formData)
                 .then( response => {
-                    this.answer = response.data.message;
+                    this.answer = response.data.data.message;
 
                 })
                 .catch(error => {
@@ -158,7 +158,7 @@ export default{
                 formData.append('_method', 'PUT');
                 axios.post('http://localhost/test/public/phonebook/update', formData)
                 .then( response => {
-                    this.answer = response.data.message;
+                    this.answer = response.data.data.message;
 
                 })
                 .catch(error => {
