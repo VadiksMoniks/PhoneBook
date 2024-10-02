@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class phone_numbers extends Seeder
+class PhoneNumbers extends Seeder
 {
     /**
      * Run the database seeds.
