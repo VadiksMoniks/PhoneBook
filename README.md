@@ -34,7 +34,7 @@ To install into your project follow the next steps:
     npm install --save-dev @vitejs/plugin-vue@4
     npm insta;; -D tailwindcss postcss autoprefix
     npx tailwindcss init -p
-    run conmmand npm run dev
+    npm run dev
     ```
 ## Features of project:
     + CRUD operations with contacts
